@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --lime: #93F5EC;
+    --purple-1: #8661C5;
+    --purple-2: #A77BF3;
+    --purple-3: #DCD4F6;
+    --white-1: #EDECFF;
+    --sky-blue-1: #C4F9FD;
+    --sky-blue-2: #A7DDFA;
+    --blue: #007acc;
+    --purple-dark: #3b2e57;
+}
+
+html {
+    scroll-behavior: smooth;
+}
