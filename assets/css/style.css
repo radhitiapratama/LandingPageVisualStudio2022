@@ -1,21 +1,772 @@
+@font-face {
+    font-family: "Segoe UI";
+    src: url("../fonts/Segoe_UI.ttf") format("truetype");
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 :root {
+    --font: "Segoe UI,sans-serif";
     --lime: #93F5EC;
     --purple-1: #8661C5;
     --purple-2: #A77BF3;
     --purple-3: #DCD4F6;
-    --white-1: #EDECFF;
+    --white-1: #fff;
+    --white-2: #EDECFF;
+    --white-3: #f2f2f2;
     --sky-blue-1: #C4F9FD;
     --sky-blue-2: #A7DDFA;
     --blue: #007acc;
     --purple-dark: #3b2e57;
+    --black-1: #1F1F1F;
+    --black-2: #1B1F24;
+    ---gray: #8193B2;
 }
+
+:root {
+    --purple-shadow: rgba(167, 123, 243, 0.25);
+    --pink-shadow: rgb(220, 212, 246, 0.1);
+    --small-rounded: 4px;
+    --medium-rounded: 6px;
+}
+
+.content-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 50px !important;
+}
+
+.row {
+    display: flex;
+}
+
+.font-gradient {
+    background: linear-gradient(119.88deg, var(--lime) 9.11%, var(--purple-2) 71.81%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bg-dark {
+    background: var(--black-2);
+}
+
+.bg-dark-purple {
+    background-color: var(--purple-dark);
+}
+
+.h-100vh {
+    min-height: 100vh;
+}
+
+.py-72 {
+    padding: 72px 0;
+}
+
+/* -------------------------- */
 
 html {
     scroll-behavior: smooth;
+}
+
+nav {
+    width: 100%;
+    height: 50px;
+    background: var(--black-1);
+    position: fixed;
+    z-index: 99;
+}
+
+nav .logo img {
+    width: 110px;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 300px;
+    gap: 16px;
+    color: var(--white-1);
+}
+
+.logo .pipe {
+    width: 2px;
+    height: 50%;
+    background-color: var(--white-1);
+}
+
+.text-wrapper {
+    position: relative;
+}
+
+.text-wrapper span {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--white-1);
+    transition: .3s;
+}
+
+.text-wrapper:hover {
+    cursor: pointer;
+}
+
+.text-wrapper:hover span {
+    width: 100%;
+}
+
+.top-container {
+    margin-bottom: 54px;
+}
+
+.top-container .top-content h1 {
+    font-size: 62px;
+    margin-bottom: 5px;
+}
+
+.top-container .top-content p {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.bottom-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+}
+
+.bottom-container .left-content {
+    min-width: 200px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    color: var(--white-2);
+    gap: 24px;
+}
+
+.bottom-container .left-content p {
+    font-size: 18px;
+}
+
+.left-content p span {
+    background: linear-gradient(180deg, var(--lime), var(--purple-2));
+    color: var(--black-2);
+    font-weight: bold;
+    border-radius: 2px;
+    font-size: 12px;
+    padding: 3px;
+}
+
+.left-content .percent-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.percent-wrapper h1 {
+    font-size: 38px;
+}
+
+.percent-wrapper p {
+    color: var(---gray);
+    transition: .3s;
+}
+
+.percent-wrapper p:hover {
+    color: var(--white-1);
+    cursor: pointer;
+}
+
+.left-content .copilot-hero-wrapper {
+    display: flex;
+    gap: 24px;
+}
+
+.copilot-hero-wrapper img {
+    width: 55px;
+    box-shadow: 0px 0px 25px var(--purple-shadow),
+        0px 0px 50px var(--purple-shadow),
+        0px 0px 75px var(--purple-shadow),
+        0px 0px 100px var(--purple-shadow);
+}
+
+.copilot-hero-wrapper button {
+    background-color: transparent;
+    border: 2px solid var(--white-1);
+    padding: 12px 32px;
+    color: var(--white-1);
+    font-size: 24px;
+    border-radius: 3px;
+    transition: .3s;
+}
+
+.copilot-hero-wrapper button:hover {
+    background: var(--purple-1);
+    border: 2px solid var(--purple-1);
+}
+
+.bottom-container .right-content {
+    min-width: 200px;
+    flex: 1;
+}
+
+.bottom-container .right-content img {
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 0px 0px 50px var(--pink-shadow),
+        0px 0px 80px var(--pink-shadow),
+        0px 0px 90px var(--pink-shadow);
+    border-radius: var(--medium-rounded);
+}
+
+.vfs-title {
+    font-size: 42px;
+    font-weight: normal;
+    margin: 28px 0;
+}
+
+.vs-card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.vs-card-wrapper .vs-card {
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-radius: var(--small-rounded);
+    padding: 18px;
+    flex: 1;
+}
+
+.vs-card .title {
+    font-weight: normal;
+}
+
+.vs-card-wrapper .vs-card img {
+    width: 54px;
+}
+
+.vs-card .text {
+    font-size: 13px;
+    margin-bottom: 32px;
+    margin-top: -12px;
+}
+
+.vs-card .btn-download {
+    border-radius: var(--small-rounded);
+    border: none;
+    color: var(--white-1);
+    height: 48px;
+    font-size: 16px;
+    width: 80%;
+}
+
+.vs-card-wrapper .visual-studio {
+    background: linear-gradient(45deg, var(--purple-3) 10%, var(--white-2) 100%);
+}
+
+.vs-card-wrapper .visual-studio-mac {
+    background: linear-gradient(45deg, var(--purple-3) 10%, var(--white-2) 100%)
+}
+
+.vs-card-wrapper .vs-code {
+    background: linear-gradient(45deg, var(--sky-blue-2) 10%, var(--white-3) 100%);
+}
+
+.visual-studio .btn-download {
+    background: var(--purple-dark);
+}
+
+.visual-studio-mac .btn-download {
+    background-color: var(--purple-1);
+}
+
+.vs-code .btn-download {
+    background: var(--blue);
+}
+
+.vsf-section .title-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 0;
+    margin: auto;
+}
+
+.vsf-section .title-container h1 {
+    font-size: 48px;
+}
+
+.vsf-section .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.visual-studio-section .btn-download {
+    max-width: 200px;
+    width: 200px;
+    height: 42px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--small-rounded);
+    background: var(--purple-dark);
+    color: var(--white-1);
+    cursor: pointer;
+}
+
+.visual-studio-section .content-wrapper .left-content {
+    min-width: 200px;
+    flex: 4;
+}
+
+.visual-studio-section .content-wrapper .left-content img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.visual-studio-section .right-content {
+    min-width: 200px;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 100px;
+    padding-left: 32px;
+    gap: 16px;
+}
+
+.visual-studio-section .right-content .title-content {
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.visual-studio-section .right-content .title-content:nth-child(2) {
+    margin-top: -10px;
+}
+
+.vsf-section .detail-link {
+    color: var(--purple-1);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.visual-studio-mac-section .btn-download {
+    max-width: 200px;
+    width: 200px;
+    height: 42px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--small-rounded);
+    background-color: var(--purple-2);
+    color: var(--white-1);
+    cursor: pointer;
+}
+
+.visual-studio-mac-section .left-content {
+    min-width: 200px;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 150px;
+    gap: 18px;
+}
+
+.visual-studio-mac-section .right-content {
+    min-width: 200px;
+    flex: 5;
+}
+
+.visual-studio-mac-section .right-content img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.vscode-section .btn-download {
+    max-width: 200px;
+    width: 200px;
+    height: 42px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--small-rounded);
+    background-color: var(--blue);
+    color: var(--white-1);
+    cursor: pointer;
+}
+
+.vscode-section .left-content {
+    min-width: 200px;
+    flex: 5;
+}
+
+.vscode-section .left-content img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.vscode-section .right-content {
+    min-width: 200px;
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 120px;
+    gap: 16px;
+}
+
+.visual-studio-section {
+    background: url("../images/vsf_bg_visual-studio.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.visual-studio-mac-section {
+    background: url("../images/vsf_bg_visua-studio-mac.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.vscode-section {
+    background: url("../images/vsf_bg_vscode.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.title-wrapper .title {
+    font-size: 48px;
+}
+
+.title-wrapper .text {
+    font-size: 18px;
+}
+
+.anchor-wrapper {
+    width: max-content;
+    position: relative;
+    cursor: pointer;
+}
+
+.anchor-wrapper span {
+    position: absolute;
+    bottom: -7px;
+    width: 100%;
+    height: 2px;
+    border-radius: var(--small-rounded);
+    background: var(--purple-dark);
+    transform: scaleX(0);
+    transition: .3s;
+}
+
+.anchor-wrapper:hover span {
+    transform: scaleX(1);
+}
+
+.title-wrapper .explore {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--purple-1);
+}
+
+.extension-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.extension-card {
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+}
+
+.extension-card .desc {
+    font-size: 16px;
+}
+
+.extension-box .extension-slide {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .7);
+    color: var(--white-1);
+    transition: .3s;
+    z-index: 1;
+
+}
+
+.extension-box:hover .extension-slide {
+    left: 0;
+}
+
+.extension-card .extension-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--small-rounded);
+    cursor: pointer;
+}
+
+.extension-box .extension-header {
+    width: 100%;
+    height: 70%;
+}
+
+.extension-header img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.extension-box .extension-body {
+    height: 30%;
+    position: relative;
+    padding-top: 32px;
+    padding-left: 12px;
+    padding-bottom: 12px;
+    background: var(--purple-dark);
+    color: var(--white-1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+.extension-body .extension-icon {
+    position: absolute;
+    top: -50%;
+
+}
+
+.extension-body .install {
+    font-size: 12px;
+}
+
+.collab-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.collab-container .left-content {
+    min-width: 200px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.collab-container .left-content .top-content {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.collab-container .left-content .top-content h1 {
+    font-size: 42px;
+    font-weight: normal;
+}
+
+.collab-container .left-content .top-content p {
+    font-size: 16px;
+}
+
+.collab-container .left-content .bottom-content {
+    min-width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.collab-container .left-content .bottom-content img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.collab-container .right-content {
+    min-width: 200px;
+    flex: 1;
+
+}
+
+.collab-container .right-content .collab-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.collab-container .collab-wrapper .collab-box {
+    border-radius: var(--small-rounded);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: .3s;
+    background: var(--white-1);
+}
+
+.collab-container .collab-wrapper .collab-box:hover {
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, .2);
+    transform: scale(1.05);
+}
+
+.download-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.download-wrapper .pipe {
+    width: 2px;
+    height: 100%;
+    background-color: white;
+}
+
+.download-wrapper .download-box {
+    min-width: 250px;
+    flex: 1;
+    color: var(--white-1);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 48px;
+}
+
+.download-header p {
+    font-size: 20px;
+}
+
+.download-box .download-header {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.download-header img {
+    width: 100px;
+}
+
+.download-body .download-btn {
+    max-width: 300px;
+    width: 200px;
+    height: 48px;
+    border: none;
+    border-radius: var(--small-rounded);
+    background: var(--white-1);
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    letter-spacing: 0.8px;
+}
+
+.download-body .download-btn span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.download-body .download-btn:hover span {
+    animation: hover-circle 1s forwards alternate;
+}
+
+.download-body .download-btn:hover {
+    color: var(--white-1);
+}
+
+.download-body .download-btn.visual-studio span {
+    background: var(--purple-2);
+}
+
+.download-body .download-btn.visual-studio-for-mac span {
+    background: var(--purple-1);
+}
+
+.download-body .download-btn.vs-code span {
+    background: var(--blue);
+}
+
+.download-wrapper .download-box:nth-child(1),
+.download-wrapper .download-box:nth-child(2) {
+    border-right: 1px solid var(---gray);
+
+}
+
+footer .footer-box-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.footer-box-wrapper .footer-box {
+    min-width: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+    margin-bottom: 16px;
+}
+
+.footer-box .title {
+    font-size: 20px;
+    color: var(--black-2);
+}
+
+.footer-box .link {
+    color: var(---gray);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.footer-box .link:hover {
+    color: var(--black-1);
+}
+
+@keyframes hover-circle {
+    to {
+        transform: scale(500);
+    }
 }
