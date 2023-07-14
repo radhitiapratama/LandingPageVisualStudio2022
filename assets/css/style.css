@@ -8,14 +8,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
-    user-select: none;
-    /* supported by Chrome and Opera */
+    /* outline: 1px solid red; */
+    /* user-select: none;
     -webkit-user-select: none;
-    /* Safari */
     -moz-user-select: none;
-    /* Firefox */
-    -ms-user-select: none;
-    /* Internet Explorer/Edge */
+    -ms-user-select: none; */
 }
 
 :root {
@@ -82,6 +79,14 @@ html {
     scroll-behavior: smooth;
 }
 
+ul li {
+    list-style: none;
+}
+
+nav .hamburger-menu {
+    display: none;
+}
+
 nav {
     width: 100%;
     height: 50px;
@@ -92,20 +97,47 @@ nav {
 
 nav .logo img {
     width: 110px;
+    object-fit: contain;
 }
 
-nav .logo {
+nav .nav-wrapper {
     display: flex;
     align-items: center;
     height: 100%;
-    width: 300px;
-    gap: 16px;
+    width: 100%;
     color: var(--white-1);
 }
 
+.nav-wrapper .logo {
+    display: flex;
+    gap: 12px;
+    margin-right: 20px;
+}
+
+nav .nav-items {
+    width: max-content;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 12px;
+}
+
+.nav-items ul li a {
+    color: var(--white-2);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+nav .title {
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--white-1);
+}
+
+
 .logo .pipe {
     width: 2px;
-    height: 50%;
     background-color: var(--white-1);
 }
 
@@ -117,10 +149,11 @@ nav .logo {
     position: absolute;
     bottom: -5px;
     left: 0;
-    width: 0%;
+    width: 100%;
     height: 2px;
     background: var(--white-1);
-    transition: .3s;
+    transition: .2s;
+    transform: scaleX(0);
 }
 
 .text-wrapper:hover {
@@ -128,7 +161,7 @@ nav .logo {
 }
 
 .text-wrapper:hover span {
-    width: 100%;
+    transform: scaleX(1);
 }
 
 .top-container {
@@ -548,7 +581,7 @@ nav .logo {
 
 .extension-card {
     max-width: 300px;
-    min-width: 280px;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -614,8 +647,13 @@ nav .logo {
 
 .extension-body .extension-icon {
     position: absolute;
-    top: -50%;
+    width: 70px;
+    top: -35%;
+}
 
+.extension-body .extension-icon img {
+    width: 100%;
+    object-fit: contain;
 }
 
 .extension-body .install {
@@ -720,6 +758,7 @@ nav .logo {
 
 .download-header img {
     width: 100px;
+    height: 100px;
 }
 
 .download-body .download-btn {
@@ -815,7 +854,58 @@ footer .footer-box-wrapper {
     }
 }
 
-@media (max-width :420px) {
+@media (max-width :500px) {
+    nav .nav-items {
+        position: fixed;
+        width: 100%;
+        height: calc(100% - 50px);
+        background: var(--black-1);
+        z-index: 10;
+        left: -100%;
+        top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 40px 0 0 40px;
+        transition: .3s;
+    }
+
+    nav .nav-items.active {
+        left: 0;
+    }
+
+    nav .nav-wrapper {
+        justify-content: center;
+        padding: 0 10px;
+    }
+
+    .nav-wrapper .logo .title,
+    .nav-wrapper .logo .pipe {
+        display: none;
+    }
+
+    .nav-wrapper .logo img {
+        width: 108px;
+    }
+
+    .nav-wrapper .hamburger-menu {
+        width: 30px;
+        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        right: 28px;
+    }
+
+    .hamburger-menu>span {
+        width: 100%;
+        height: 2px;
+        background: var(--white-1);
+    }
+
+
     .content-container {
         padding: 0 24px !important;
     }
@@ -874,5 +964,9 @@ footer .footer-box-wrapper {
     .collab-container .left-content .top-content h1 {
         font-size: 32px;
         font-weight: normal;
+    }
+
+    .vs-card .btn-download {
+        font-size: 12px;
     }
 }
