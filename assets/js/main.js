@@ -24,6 +24,7 @@ images.forEach(function (img) {
 
 const hamburgerMenu = document.querySelector("nav .hamburger-menu");
 const navItems = document.querySelector("nav .nav-items");
+const navlistItems = document.querySelectorAll(".nav-items li a");
 
 hamburgerMenu.addEventListener("click", function () {
     const active = document.querySelector(".nav-items.active");
@@ -33,3 +34,9 @@ hamburgerMenu.addEventListener("click", function () {
     }
     navItems.classList.add("active");
 });
+
+navlistItems.forEach(function (lists) {
+    lists.addEventListener("click", function (el) {
+        navItems.classList.remove("active");
+    })
+})

@@ -123,7 +123,7 @@ nav .nav-items {
     padding: 0 12px;
 }
 
-.nav-items ul li a {
+.nav-items li a {
     color: var(--white-2);
     cursor: pointer;
     text-decoration: none;
@@ -133,6 +133,10 @@ nav .title {
     font-size: 20px;
     text-decoration: none;
     color: var(--white-1);
+}
+
+.nav-wrapper .vs-link {
+    display: none;
 }
 
 
@@ -852,9 +856,17 @@ footer .footer-box-wrapper {
     .collab-container {
         flex-direction: column;
     }
+
+    .vs-card .btn-download {
+        font-size: 12px;
+    }
 }
 
 @media (max-width :500px) {
+    .nav-items .vs-link {
+        display: block;
+    }
+
     nav .nav-items {
         position: fixed;
         width: 100%;
@@ -869,6 +881,7 @@ footer .footer-box-wrapper {
         align-items: flex-start;
         padding: 40px 0 0 40px;
         transition: .3s;
+        gap: 20px;
     }
 
     nav .nav-items.active {
