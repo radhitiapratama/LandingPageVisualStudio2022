@@ -9,10 +9,10 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
     /* outline: 1px solid red; */
-    /* user-select: none;
+    user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
-    -ms-user-select: none; */
+    -ms-user-select: none;
 }
 
 :root {
